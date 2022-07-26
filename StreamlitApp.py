@@ -1,7 +1,7 @@
 #Import Packages
 import numpy as np
 from PIL import Image
-import torch as th
+import torch
 from torch.nn import functional as F
 from torchvision import models, transforms
 import torch.nn as nn
@@ -9,7 +9,7 @@ import streamlit as st
 import warnings
 warnings.filterwarnings('ignore')
 
-device = th.device("cuda:0" if th.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 icon = Image.open('icon.png')
 st.set_page_config(page_title='Classifier', page_icon = icon)
@@ -24,7 +24,7 @@ def Resnet50():
                 nn.ReLU(inplace=True),
                 nn.Linear(128, 2)).to(device)
 
-    model.load_state_dict(th.load('D:\Cats_Dogs_Model\weights.h5' , map_location=th.device('cpu')) )
+    model.load_state_dict(torch.load('D:\Cats_Dogs_Model\weights.h5' , map_location=torch.device('cpu')) )
 
     return model
 
@@ -53,7 +53,7 @@ if file_up is not None:
     st.write("")
     st.write("Just a second ...")
     img = data_transform(image)
-    img = th.reshape(img , (1, 3, 224, 224))
+    img = torch.reshape(img , (1, 3, 224, 224))
     prob = Predict(img)
 
     if round(prob[0][0]) == 0:
