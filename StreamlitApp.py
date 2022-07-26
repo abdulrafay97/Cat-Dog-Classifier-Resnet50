@@ -24,7 +24,7 @@ def Resnet50():
                 nn.ReLU(inplace=True),
                 nn.Linear(128, 2)).to(device)
 
-    model.load_state_dict(torch.load('D:\Cats_Dogs_Model\weights.h5' , map_location=torch.device('cpu')) )
+    model.load_state_dict(torch.load('weights.h5' , map_location=torch.device('cpu')) )
 
     return model
 
