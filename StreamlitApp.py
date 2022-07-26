@@ -11,7 +11,7 @@ warnings.filterwarnings('ignore')
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-icon = Image.open('icon.png')
+icon = Image.open('icon.jpg')
 st.set_page_config(page_title='Classifier', page_icon = icon)
 st.header('Cat And Dog Classifier')
 
