@@ -1,1 +1,1 @@
-# Cat-Dog-Classifier-Resnet-50-
+# Cat-Dog-Classifier-Resnet-50
