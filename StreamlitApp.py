@@ -25,7 +25,7 @@ def Resnet50():
                 nn.Linear(128, 2)).to(device)
 
     model.load_state_dict(torch.load('weights.h5' , map_location=torch.device('cpu')) )
-
+    model.eval()
     return model
 
 #Calculating Prediction
